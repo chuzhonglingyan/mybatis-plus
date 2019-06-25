@@ -1,8 +1,7 @@
 package com.yuntian.mybatisplus.user.service;
 
-import com.yuntian.mybatisplus.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yuntian.mybatisplus.user.vo.UserVO;
+import com.yuntian.mybatisplus.user.entity.User;
 
 /**
  * <p>

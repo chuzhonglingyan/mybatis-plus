@@ -1,6 +1,5 @@
 package com.yuntian.gencode;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -16,10 +15,10 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
-import org.omg.CORBA.IDLType;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -82,24 +81,43 @@ public class CodeGenerator {
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
         pc.setParent(PACKAGE_NAME);
+        pc.setEntity("model.entity");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
+            //自定义属性注入:abc
+            //在.ftl(或者是.vm)模板中，通过${cfg.abc}获取属性
             @Override
             public void initMap() {
-                // to do nothing
+                Map<String, Object> map = new HashMap<>();
+                map.put("packageName", PACKAGE_NAME);
+                map.put("dtoPackageName", PACKAGE_NAME+"."+pc.getModuleName());
+                this.setMap(map);
             }
         };
 
+
         // 如果模板引擎是 freemarker
         String templatePath = "/templates/mapper.xml.ftl";
+
+
+        String templateDTOPath = "/templates/dto.ftl";
         // 如果模板引擎是 velocity
         // String templatePath = "/templates/mapper.xml.vm";
 
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();
         // 自定义配置会被优先输出
+        focList.add(new FileOutConfig(templateDTOPath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath +"/src/main/java/"+CodeGenUtil.packageConvertPath(PACKAGE_NAME)  + pc.getModuleName()
+                        + "/model/dto/" + tableInfo.getEntityName() + "DTO" + StringPool.DOT_JAVA;
+            }
+        });
+
         focList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
@@ -108,6 +126,8 @@ public class CodeGenerator {
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
+
+
         /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
@@ -141,6 +161,7 @@ public class CodeGenerator {
         strategy.setEntitySerialVersionUID(true);
         strategy.setEntityLombokModel(true);
 
+
         strategy.setRestControllerStyle(true);
         strategy.setSuperControllerClass(PACKAGE_NAME+".common.BaseController");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
@@ -152,6 +173,9 @@ public class CodeGenerator {
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
+
+
+
 
 }
 

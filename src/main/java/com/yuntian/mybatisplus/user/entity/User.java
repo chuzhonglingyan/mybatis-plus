@@ -3,6 +3,7 @@ package com.yuntian.mybatisplus.user.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.yuntian.mybatisplus.common.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,6 +33,7 @@ public class User extends BaseEntity {
     /**
     * 是否删除，0-未删除，1-删除，默认为0
     */
+    @TableLogic
     private Integer isDelete;
 
 

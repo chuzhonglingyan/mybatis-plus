@@ -1,9 +1,15 @@
-package ${basePackage}.model.dto;
+package ${cfg.dtoPackageName}.model.dto;
 
 import java.io.Serializable;
+import ${cfg.packageName}.common.BaseDTO;
 /**
- * Created by ${author} on ${date}.
- */
-public class ${modelNameUpperCamel}DTO extends BaseDTO implements Serializable{
+*
+* <p>
+    *  ${table.comment!}
+    * </p>
+* @author ${author}
+* @since ${date}
+*/
+public class ${entity}DTO extends BaseDTO implements Serializable{
 
 }
