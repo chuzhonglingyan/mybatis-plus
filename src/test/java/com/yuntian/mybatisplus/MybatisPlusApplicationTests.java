@@ -1,19 +1,19 @@
 package com.yuntian.mybatisplus;
 
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yuntian.mybatisplus.user.entity.User;
-import com.yuntian.mybatisplus.user.service.IUserService;
-import com.yuntian.mybatisplus.user.vo.UserVO;
+import com.yuntian.mybatisplus.api.model.entity.User;
+import com.yuntian.mybatisplus.api.service.UserService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import javax.annotation.Resource;
+
 import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
@@ -23,7 +23,7 @@ public class MybatisPlusApplicationTests {
 
 
     @Resource
-    private IUserService userService;
+    private UserService userService;
 
 
     @Test

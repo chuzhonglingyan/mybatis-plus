@@ -1,4 +1,4 @@
-package com.yuntian.mybatisplus.user.controller;
+package com.yuntian.mybatisplus.api.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +12,10 @@ import com.yuntian.mybatisplus.common.BaseController;
  * </p>
  *
  * @author yuntian
- * @since 2019-06-18
+ * @since 2019-06-25
  */
 @RestController
-@RequestMapping("/user/user")
+@RequestMapping("/api/user")
 public class UserController extends BaseController {
 
 }

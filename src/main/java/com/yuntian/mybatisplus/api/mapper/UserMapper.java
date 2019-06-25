@@ -1,8 +1,7 @@
-package com.yuntian.mybatisplus.user.mapper;
+package com.yuntian.mybatisplus.api.mapper;
 
-import com.yuntian.mybatisplus.user.entity.User;
+import com.yuntian.mybatisplus.api.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yuntian.mybatisplus.user.vo.UserVO;
 
 /**
  * <p>
@@ -10,7 +9,7 @@ import com.yuntian.mybatisplus.user.vo.UserVO;
  * </p>
  *
  * @author yuntian
- * @since 2019-06-18
+ * @since 2019-06-25
  */
 public interface UserMapper extends BaseMapper<User> {
 
