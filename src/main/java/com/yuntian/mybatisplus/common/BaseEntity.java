@@ -3,7 +3,7 @@ package com.yuntian.mybatisplus.common;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.Data;
 
@@ -29,7 +29,7 @@ public class BaseEntity {
     /**
      * 创建时间
      */
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * 更新人
@@ -39,7 +39,7 @@ public class BaseEntity {
     /**
      * 更新时间
      */
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
 
 

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author yuntian
- * @since 2019-06-25
+ * @since 2019-06-26
  */
 public interface BackendOperaterMapper extends BaseMapper<BackendOperater> {
 

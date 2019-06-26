@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yuntian.mybatisplus.api.model.entity.User;
 import com.yuntian.mybatisplus.api.service.UserService;
+import com.yuntian.mybatisplus.common.BaseDTO;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,6 +63,10 @@ public class MybatisPlusApplicationTests {
 
     @Test
     public void page() {
+        BaseDTO dto=new BaseDTO();
+        dto.getCurrent();
+        dto.getSize();
+
         IPage<User> page=new Page<>(1,10);
         IPage<User>  list=userService.page(page);
         log.info("查询结果:"+ JSON.toJSONString(list));
