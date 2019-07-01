@@ -7,4 +7,9 @@ package com.yuntian.mybatisplus.common;
  */
 public abstract class BaseController {
 
+
+    protected Long getUserId(){
+        return  0L;
+    }
+
 }

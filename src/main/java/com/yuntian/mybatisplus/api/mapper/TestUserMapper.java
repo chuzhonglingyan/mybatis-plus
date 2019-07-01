@@ -13,9 +13,11 @@ import java.util.List;
  * @author yuntian
  * @since 2019-06-25
  */
-public interface UserMapper extends MyBaseMapper<User> {
+public interface TestUserMapper extends MyBaseMapper<User> {
 
 
     void deleteBatch(List<User> list);
+
+    void updateBatch(List<User> list);
 
 }

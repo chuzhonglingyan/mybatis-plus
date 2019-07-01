@@ -1,7 +1,7 @@
 package com.yuntian.mybatisplus.sys.mapper;
 
 import com.yuntian.mybatisplus.sys.model.entity.BackendOperater;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yuntian.mybatisplus.common.MyBaseMapper;
 
 /**
  * <p>
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author yuntian
- * @since 2019-06-26
+ * @since 2019-07-02
  */
-public interface BackendOperaterMapper extends BaseMapper<BackendOperater> {
+public interface BackendOperaterMapper extends MyBaseMapper<BackendOperater> {
 
 }

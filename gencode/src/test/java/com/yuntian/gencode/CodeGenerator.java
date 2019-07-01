@@ -157,10 +157,14 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass(PACKAGE_NAME+".common.BaseEntity");
         strategy.setEntitySerialVersionUID(true);
         strategy.setEntityLombokModel(true);
 
+
+        strategy.setSuperEntityClass(PACKAGE_NAME+".common.BaseEntity");
+        strategy.setSuperServiceClass(PACKAGE_NAME+".common.IBaseService");
+        strategy.setSuperServiceImplClass(PACKAGE_NAME+".common.BaseServiceImpl");
+        strategy.setSuperMapperClass(PACKAGE_NAME+".common.MyBaseMapper");
 
         strategy.setRestControllerStyle(true);
         strategy.setSuperControllerClass(PACKAGE_NAME+".common.BaseController");

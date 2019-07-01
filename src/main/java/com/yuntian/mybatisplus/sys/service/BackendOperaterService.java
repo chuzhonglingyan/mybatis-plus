@@ -2,7 +2,8 @@ package com.yuntian.mybatisplus.sys.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yuntian.mybatisplus.sys.model.dto.BackendOperaterDTO;
 import com.yuntian.mybatisplus.sys.model.entity.BackendOperater;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.yuntian.mybatisplus.common.IBaseService;
+import java.util.Collection;
 
 /**
  * <p>
@@ -10,9 +11,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author yuntian
- * @since 2019-06-26
+ * @since 2019-07-02
  */
-public interface BackendOperaterService extends IService<BackendOperater> {
+public interface BackendOperaterService extends IBaseService<BackendOperater> {
 
    IPage<BackendOperater> queryListByPage(BackendOperaterDTO dto);
+
+
+   void updateByDTO(BackendOperater dto);
+
+
+   void deleteByDTO(BackendOperater dto);
+
+
+   void deleteBatchByDTO(Collection<BackendOperater> entityList);
+
 }

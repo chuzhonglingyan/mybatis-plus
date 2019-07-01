@@ -1,7 +1,10 @@
 package com.yuntian.mybatisplus.api.service;
 
 import com.yuntian.mybatisplus.api.model.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.yuntian.mybatisplus.common.IBaseService;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +14,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author yuntian
  * @since 2019-06-25
  */
-public interface UserService extends IService<User> {
+public interface UserService extends IBaseService<User> {
 
+
+       void deleteByDTO(User dto) ;
+
+       void deleteBatchByDTO(Collection<User> dto) ;
+
+
+       void deleteBatch(List<User> list);
 }

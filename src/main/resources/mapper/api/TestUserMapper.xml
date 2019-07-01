@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuntian.mybatisplus.api.mapper.TestUserMapper">
+
+    <sql id="Table_Name">user</sql>
+
+    <update id="deleteBatch" parameterType="java.util.List">
+        update
+        <include refid="Table_Name" />
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_delete =case" suffix="end,">
+                <foreach collection="list" item="item">
+                    when id=#{item.id} then 1
+                </foreach>
+            </trim>
+            <trim prefix="update_id =case" suffix="end,">
+                <foreach collection="list" item="item">
+                    <if test="item.updateId !=null and item.updateId != -1">
+                        when id=#{item.id} then #{item.updateId}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where (id) in
+        <foreach item="item" index="index" collection="list" separator="," open="(" close=")">
+            (#{item.id})
+        </foreach>
+    </update>
+
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update
+            <include refid="Table_Name" />
+            <set>
+                is_delete=1,
+                update_id= #{item.updateId}
+            </set>
+            where id = #{item.id}
+        </foreach>
+    </update>
+
+
+</mapper>

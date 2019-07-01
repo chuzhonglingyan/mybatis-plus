@@ -1,5 +1,6 @@
 package com.yuntian.mybatisplus.api.model.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.yuntian.mybatisplus.common.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,6 +29,7 @@ public class User extends BaseEntity {
     /**
     * 是否删除，0-未删除，1-删除，默认为0
     */
+    @TableLogic
     private Integer isDelete;
 
 

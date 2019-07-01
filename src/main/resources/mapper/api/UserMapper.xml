@@ -1,5 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuntian.mybatisplus.api.mapper.UserMapper">
+
+
+
+    <update id="deleteBatch" parameterType="java.util.List">
+        UPDATE user
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="is_delete =case" suffix="end,">
+                <foreach collection="list" item="et">
+                    when id=#{et.id} then 1
+                </foreach>
+            </trim>
+            <trim prefix="update_id =case" suffix="end,">
+                <foreach collection="list" item="et">
+                    when id=#{et.id} then #{et.updateId}
+                </foreach>
+            </trim>
+        </trim>
+        WHERE id IN
+        (<foreach collection="list" item="et" separator=",">
+        (#{et.id})</foreach>)
+    </update>
+
 
 </mapper>
