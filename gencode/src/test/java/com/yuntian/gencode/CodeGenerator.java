@@ -171,7 +171,7 @@ public class CodeGenerator {
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
 
         strategy.setSuperEntityColumns("id","create_id","create_time","update_id","update_time");
-        strategy.setControllerMappingHyphenStyle(true);
+//        strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());

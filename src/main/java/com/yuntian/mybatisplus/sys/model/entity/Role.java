@@ -1,5 +1,7 @@
 package com.yuntian.mybatisplus.sys.model.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.yuntian.mybatisplus.common.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,7 +10,7 @@ import lombok.experimental.Accessors;
 /**
 *
 * <p>
-*  后台用户表
+*  后台系统-角色表
 * </p>
 * @author yuntian
 * @since 2019-07-02
@@ -16,48 +18,35 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class BackendOperater extends BaseEntity {
+@TableName("sys_role")
+public class Role extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
     /**
-    * 账号
+    * 角色key
     */
-    private String accountName;
+    private String role;
 
     /**
-    * 用户名
+    * 角色名称
     */
-    private String userName;
+    private String roleName;
 
     /**
-    * 密码
+    * 角色状态 0:冻结  1：开通
     */
-    private String passWord;
+    private Integer roleStatus;
 
     /**
-    * 邮箱
+    * 备注
     */
-    private String email;
-
-    /**
-    * 电话
-    */
-    private String phone;
-
-    /**
-    * 是否启用，0-禁用，1-启用，默认为0
-    */
-    private Integer isEnable;
-
-    /**
-    * 是否超级管理员，0-否，1-是，默认为0
-    */
-    private Integer isSupper;
+    private String remark;
 
     /**
     * 是否删除，0-未删除，1-删除，默认为0
     */
+    @TableLogic
     private Integer isDelete;
 
 

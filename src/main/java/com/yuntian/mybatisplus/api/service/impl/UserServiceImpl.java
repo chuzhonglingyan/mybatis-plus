@@ -1,13 +1,11 @@
 package com.yuntian.mybatisplus.api.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.yuntian.mybatisplus.api.model.entity.User;
 import com.yuntian.mybatisplus.api.mapper.UserMapper;
+import com.yuntian.mybatisplus.api.model.entity.User;
 import com.yuntian.mybatisplus.api.service.UserService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yuntian.mybatisplus.common.BaseServiceImpl;
 import com.yuntian.mybatisplus.exception.BusinessException;
-import com.yuntian.mybatisplus.sys.model.entity.BackendOperater;
 import com.yuntian.mybatisplus.util.AssertUtil;
 
 import org.springframework.stereotype.Service;
@@ -15,9 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-
-import javax.jws.soap.SOAPBinding;
 
 /**
  * <p>
