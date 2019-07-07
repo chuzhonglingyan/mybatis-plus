@@ -1,6 +1,6 @@
 
-DROP TABLE IF EXISTS `sys_user`;
-CREATE TABLE `sys_user` (
+DROP TABLE IF EXISTS `sys_operator`;
+CREATE TABLE `sys_operator` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `account` varchar(50) NOT NULL COMMENT '账号',
   `user_name` varchar(50) NOT NULL COMMENT '用户名',
@@ -54,7 +54,7 @@ CREATE TABLE `sys_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台系统-菜单表';
 
 
-DROP TABLE IF EXISTS `sys_user_role`;
+DROP TABLE IF EXISTS `sys_operator_role`;
 CREATE TABLE `sys_user_role` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `user_id` bigint(20) NOT NULL COMMENT '用户id',

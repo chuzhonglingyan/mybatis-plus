@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // 如果有允许匿名的url，填在下面
-                .antMatchers().permitAll()
+                .antMatchers("/sys/operator/**","/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 // 设置登陆页
@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 设置拦截忽略文件夹，可以对静态资源放行
-        web.ignoring().antMatchers("/css/**", "/js/**");
+        web.ignoring().antMatchers("/static/**","/image/**","/css/**", "/js/**","/img/**","/druid/**");
     }
 
 

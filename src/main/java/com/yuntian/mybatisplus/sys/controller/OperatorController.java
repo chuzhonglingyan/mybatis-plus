@@ -8,9 +8,9 @@ import javax.annotation.Resource;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yuntian.mybatisplus.common.Result;
 import com.yuntian.mybatisplus.common.ResultGenerator;
-import com.yuntian.mybatisplus.sys.model.entity.SysUser;
-import com.yuntian.mybatisplus.sys.service.UserService;
-import com.yuntian.mybatisplus.sys.model.dto.SysUserDTO;
+import com.yuntian.mybatisplus.sys.model.entity.Operator;
+import com.yuntian.mybatisplus.sys.service.OperatorService;
+import com.yuntian.mybatisplus.sys.model.dto.OperatorDTO;
 
 import org.springframework.web.bind.annotation.RestController;
 import com.yuntian.mybatisplus.common.BaseController;
@@ -21,50 +21,50 @@ import com.yuntian.mybatisplus.common.BaseController;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-02
+ * @since 2019-07-06
  */
 @RestController
-@RequestMapping("/sys/user")
-public class UserController extends BaseController {
+@RequestMapping("/sys/operator")
+public class OperatorController extends BaseController {
 
 
     @Resource
-    private UserService  userService;
+    private OperatorService  operatorService;
 
 
     @PostMapping("/save")
-    public Result save(SysUser dto) {
+    public Result save(Operator dto) {
         dto.setCreateId(getUserId());
         dto.setUpdateId(getUserId());
-        userService.save(dto);
+        operatorService.save(dto);
         return ResultGenerator.genSuccessResult();
     }
 
     @PostMapping("/delete")
-    public Result delete(SysUser dto) {
+    public Result delete(Operator dto) {
         dto.setUpdateId(getUserId());
-        userService.deleteByDTO(dto);
+        operatorService.deleteByDTO(dto);
         return ResultGenerator.genSuccessResult();
     }
 
     @PostMapping("/update")
-    public Result update(SysUser dto) {
+    public Result update(Operator dto) {
         dto.setCreateId(getUserId());
         dto.setUpdateId(getUserId());
-        userService.updateByDTO(dto);
+        operatorService.updateByDTO(dto);
         return ResultGenerator.genSuccessResult();
     }
 
     @PostMapping("/detail")
     public Result detail(@RequestParam Long id) {
-        SysUser entity = userService.getById(id);
+        Operator entity = operatorService.getById(id);
         return ResultGenerator.genSuccessResult(entity);
     }
 
 
     @PostMapping("/list")
-    public IPage<SysUser> list(SysUserDTO dto) {
-        return userService.queryListByPage(dto);
+    public IPage<Operator> list(OperatorDTO dto) {
+        return operatorService.queryListByPage(dto);
     }
 
 }

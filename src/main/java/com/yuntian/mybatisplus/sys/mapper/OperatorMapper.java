@@ -1,6 +1,6 @@
 package com.yuntian.mybatisplus.sys.mapper;
 
-import com.yuntian.mybatisplus.sys.model.entity.SysUser;
+import com.yuntian.mybatisplus.sys.model.entity.Operator;
 import com.yuntian.mybatisplus.common.MyBaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.yuntian.mybatisplus.common.MyBaseMapper;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-02
+ * @since 2019-07-06
  */
-public interface UserMapper extends MyBaseMapper<SysUser> {
+public interface OperatorMapper extends MyBaseMapper<Operator> {
 
 }

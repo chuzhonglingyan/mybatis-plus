@@ -20,7 +20,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-02
+ * @since 2019-07-06
  */
 @Service
 public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implements RoleService {
@@ -67,21 +67,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public boolean saveBatch(Collection<Role> entityList) {
-        AssertUtil.isNotEmpty(entityList, "参数不能为空");
-        entityList.forEach(entity -> {
-            if (Objects.isNull(entity)) {
-                BusinessException.throwMessage("插入参数有问题");
-            }
-        });
-        boolean flag = saveBatch(entityList, entityList.size());
-        if (!flag) {
-            BusinessException.throwMessage("批量插入失败");
-        }
-        return flag;
-    }
+
 
     @Transactional(rollbackFor = Exception.class)
     @Override

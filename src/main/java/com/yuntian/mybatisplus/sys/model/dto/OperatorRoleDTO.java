@@ -5,11 +5,11 @@ import com.yuntian.mybatisplus.common.BaseDTO;
 /**
 *
 * <p>
-    *  后台系统-用户表
+    *  后台系统-用户角色关系表
     * </p>
 * @author yuntian
-* @since 2019-07-02
+* @since 2019-07-06
 */
-public class SysUserDTO extends BaseDTO implements Serializable{
+public class OperatorRoleDTO extends BaseDTO implements Serializable{
 
 }

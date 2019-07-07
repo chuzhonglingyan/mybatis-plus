@@ -8,7 +8,7 @@ import com.yuntian.mybatisplus.common.BaseDTO;
     *  后台系统-角色表
     * </p>
 * @author yuntian
-* @since 2019-07-02
+* @since 2019-07-06
 */
 public class RoleDTO extends BaseDTO implements Serializable{
 

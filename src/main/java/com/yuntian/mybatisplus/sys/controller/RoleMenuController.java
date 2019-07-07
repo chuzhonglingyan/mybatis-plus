@@ -8,63 +8,63 @@ import javax.annotation.Resource;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yuntian.mybatisplus.common.Result;
 import com.yuntian.mybatisplus.common.ResultGenerator;
-import com.yuntian.mybatisplus.sys.model.entity.Role;
-import com.yuntian.mybatisplus.sys.service.RoleService;
-import com.yuntian.mybatisplus.sys.model.dto.RoleDTO;
+import com.yuntian.mybatisplus.sys.model.entity.RoleMenu;
+import com.yuntian.mybatisplus.sys.service.RoleMenuService;
+import com.yuntian.mybatisplus.sys.model.dto.RoleMenuDTO;
 
 import org.springframework.web.bind.annotation.RestController;
 import com.yuntian.mybatisplus.common.BaseController;
 
 /**
  * <p>
- * 后台系统-角色表 前端控制器
+ * 后台系统-角色菜单关系表 前端控制器
  * </p>
  *
  * @author yuntian
  * @since 2019-07-06
  */
 @RestController
-@RequestMapping("/sys/role")
-public class RoleController extends BaseController {
+@RequestMapping("/sys/roleMenu")
+public class RoleMenuController extends BaseController {
 
 
     @Resource
-    private RoleService  roleService;
+    private RoleMenuService  roleMenuService;
 
 
     @PostMapping("/save")
-    public Result save(Role dto) {
+    public Result save(RoleMenu dto) {
         dto.setCreateId(getUserId());
         dto.setUpdateId(getUserId());
-        roleService.save(dto);
+        roleMenuService.save(dto);
         return ResultGenerator.genSuccessResult();
     }
 
     @PostMapping("/delete")
-    public Result delete(Role dto) {
+    public Result delete(RoleMenu dto) {
         dto.setUpdateId(getUserId());
-        roleService.deleteByDTO(dto);
+        roleMenuService.deleteByDTO(dto);
         return ResultGenerator.genSuccessResult();
     }
 
     @PostMapping("/update")
-    public Result update(Role dto) {
+    public Result update(RoleMenu dto) {
         dto.setCreateId(getUserId());
         dto.setUpdateId(getUserId());
-        roleService.updateByDTO(dto);
+        roleMenuService.updateByDTO(dto);
         return ResultGenerator.genSuccessResult();
     }
 
     @PostMapping("/detail")
     public Result detail(@RequestParam Long id) {
-        Role entity = roleService.getById(id);
+        RoleMenu entity = roleMenuService.getById(id);
         return ResultGenerator.genSuccessResult(entity);
     }
 
 
     @PostMapping("/list")
-    public IPage<Role> list(RoleDTO dto) {
-        return roleService.queryListByPage(dto);
+    public IPage<RoleMenu> list(RoleMenuDTO dto) {
+        return roleMenuService.queryListByPage(dto);
     }
 
 }

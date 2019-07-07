@@ -1,10 +1,10 @@
 package com.yuntian.mybatisplus.sys.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yuntian.mybatisplus.sys.model.dto.UserRoleDTO;
-import com.yuntian.mybatisplus.sys.model.entity.UserRole;
-import com.yuntian.mybatisplus.sys.mapper.UserRoleMapper;
-import com.yuntian.mybatisplus.sys.service.UserRoleService;
+import com.yuntian.mybatisplus.sys.model.dto.OperatorDTO;
+import com.yuntian.mybatisplus.sys.model.entity.Operator;
+import com.yuntian.mybatisplus.sys.mapper.OperatorMapper;
+import com.yuntian.mybatisplus.sys.service.OperatorService;
 import com.yuntian.mybatisplus.common.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 import com.yuntian.mybatisplus.util.AssertUtil;
@@ -16,38 +16,38 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 后台系统-用户角色关系表 服务实现类
+ * 后台系统-用户表 服务实现类
  * </p>
  *
  * @author yuntian
- * @since 2019-07-02
+ * @since 2019-07-06
  */
 @Service
-public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRole> implements UserRoleService {
+public class OperatorServiceImpl extends BaseServiceImpl<OperatorMapper, Operator> implements OperatorService {
 
     @Override
-    public IPage<UserRole> queryListByPage(UserRoleDTO dto) {
+    public IPage<Operator> queryListByPage(OperatorDTO dto) {
         AssertUtil.isNotNull(dto, "参数不能为空");
-        IPage<UserRole> page=new Page<>(dto.getCurrent(),dto.getSize());
+        IPage<Operator> page=new Page<>(dto.getCurrent(),dto.getSize());
         return page(page);
     }
 
 
     @Override
-    public UserRole getById(Serializable id) {
+    public Operator getById(Serializable id) {
         return super.getById(id);
     }
 
 
     @Override
-    public boolean save(UserRole dto) {
+    public boolean save(Operator dto) {
         AssertUtil.isNotNull(dto, "参数不能为空");
         return super.save(dto);
     }
 
 
     @Override
-    public void updateByDTO(UserRole dto) {
+    public void updateByDTO(Operator dto) {
         AssertUtil.isNotNull(dto, "参数不能为空");
         AssertUtil.isNotNull(dto.getId(), "id不能为空");
         boolean flag = super.updateById(dto);
@@ -58,7 +58,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
 
     @Override
-    public void deleteByDTO(UserRole dto) {
+    public void deleteByDTO(Operator dto) {
         AssertUtil.isNotNull(dto, "参数不能为空");
         AssertUtil.isNotNull(dto.getId(), "id不能为空");
         boolean flag = deleteByIdWithFill(dto);
@@ -67,25 +67,10 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public boolean saveBatch(Collection<UserRole> entityList) {
-        AssertUtil.isNotEmpty(entityList, "参数不能为空");
-        entityList.forEach(entity -> {
-            if (Objects.isNull(entity)) {
-                BusinessException.throwMessage("插入参数有问题");
-            }
-        });
-        boolean flag = saveBatch(entityList, entityList.size());
-        if (!flag) {
-            BusinessException.throwMessage("批量插入失败");
-        }
-        return flag;
-    }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public boolean updateBatchById(Collection<UserRole> entityList) {
+    public boolean updateBatchById(Collection<Operator> entityList) {
         AssertUtil.isNotEmpty(entityList, "参数不能为空");
         boolean flag = updateBatchById(entityList, entityList.size());
         if (!flag) {
@@ -97,7 +82,7 @@ public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper, UserRol
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public void deleteBatchByDTO(Collection<UserRole> entityList) {
+    public void deleteBatchByDTO(Collection<Operator> entityList) {
         AssertUtil.isNotEmpty(entityList, "参数不能为空");
         boolean flag = deleteByIdsWithFill(entityList);
         if (!flag) {

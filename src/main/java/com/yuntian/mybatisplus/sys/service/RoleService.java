@@ -11,7 +11,7 @@ import java.util.Collection;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-02
+ * @since 2019-07-06
  */
 public interface RoleService extends IBaseService<Role> {
 

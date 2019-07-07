@@ -72,21 +72,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public boolean saveBatch(Collection<${entity}> entityList) {
-        AssertUtil.isNotEmpty(entityList, "参数不能为空");
-        entityList.forEach(entity -> {
-            if (Objects.isNull(entity)) {
-                BusinessException.throwMessage("插入参数有问题");
-            }
-        });
-        boolean flag = saveBatch(entityList, entityList.size());
-        if (!flag) {
-            BusinessException.throwMessage("批量插入失败");
-        }
-        return flag;
-    }
+
 
     @Transactional(rollbackFor = Exception.class)
     @Override

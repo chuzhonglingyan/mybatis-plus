@@ -1,6 +1,5 @@
 package com.yuntian.mybatisplus.sys.model.entity;
 
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.yuntian.mybatisplus.common.BaseEntity;
 import lombok.Data;
@@ -13,13 +12,13 @@ import lombok.experimental.Accessors;
 *  后台系统-用户表
 * </p>
 * @author yuntian
-* @since 2019-07-02
+* @since 2019-07-06
 */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("sys_user")
-public class SysUser extends BaseEntity {
+@TableName("sys_operator")
+public class Operator extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -61,7 +60,6 @@ public class SysUser extends BaseEntity {
     /**
     * 是否删除，0-未删除，1-删除，默认为0
     */
-    @TableLogic
     private Integer isDelete;
 
 

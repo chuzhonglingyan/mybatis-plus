@@ -12,13 +12,13 @@ import lombok.experimental.Accessors;
 *  后台系统-用户角色关系表
 * </p>
 * @author yuntian
-* @since 2019-07-02
+* @since 2019-07-06
 */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("sys_user_role")
-public class UserRole extends BaseEntity {
+@TableName("sys_operator_role")
+public class OperatorRole extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
