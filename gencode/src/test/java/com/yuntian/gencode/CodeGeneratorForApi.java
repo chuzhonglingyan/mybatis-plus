@@ -1,6 +1,8 @@
 package com.yuntian.gencode;
 
+import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import static com.yuntian.gencode.CodeUtil.scanner;
 
@@ -26,7 +29,7 @@ import static com.yuntian.gencode.CodeUtil.scanner;
  * @Description:
  */
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
-public class CodeGenerator {
+public class CodeGeneratorForApi {
 
 
     public static  final String PACKAGE_NAME="com.yuntian.mybatisplus";
@@ -153,7 +156,7 @@ public class CodeGenerator {
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
 
         strategy.setSuperEntityColumns("id","create_id","create_time","update_id","update_time");
-//        strategy.setControllerMappingHyphenStyle(true);
+        strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());

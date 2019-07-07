@@ -5,10 +5,10 @@ import com.yuntian.mybatisplus.common.BaseDTO;
 /**
 *
 * <p>
-    *  测试表
+    *  前台系统-用户表
     * </p>
 * @author yuntian
-* @since 2019-06-25
+* @since 2019-07-07
 */
 public class UserDTO extends BaseDTO implements Serializable{
 

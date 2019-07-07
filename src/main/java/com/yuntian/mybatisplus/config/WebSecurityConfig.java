@@ -1,6 +1,6 @@
 package com.yuntian.mybatisplus.config;
 
-import com.yuntian.mybatisplus.sys.service.CustomUserDetailsService;
+import com.yuntian.mybatisplus.sys.service.impl.UserDetailsServiceImpl;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,7 +23,7 @@ import javax.annotation.Resource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource
-    private CustomUserDetailsService userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

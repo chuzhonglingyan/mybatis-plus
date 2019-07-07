@@ -27,18 +27,18 @@ public class LogicDeleteByIdsWithFill extends AbstractMethod {
         String isDeleteItem = String.format("when id=#{%s.id} then 1", Constants.ENTITY);
         String updateIdItem = String.format("when id=#{%s.id} then #{%s.updateId}", Constants.ENTITY, Constants.ENTITY);
 
-        String valuesIsDeleteHead = SqlScriptStrongUtils.convertForeach(isDeleteItem, SqlScriptStrongUtils.List, null, Constants.ENTITY, COMMA);
+        String valuesIsDeleteHead = SqlScriptStrongUtils.convertForeach(isDeleteItem, SqlScriptStrongUtils.LIST, null, Constants.ENTITY, COMMA);
         String valuesIsDeleteBody = SqlScriptUtils.convertTrim(valuesIsDeleteHead, "is_delete =case", "end,", "", "");
 
-        String valueUpdateIdHead = SqlScriptStrongUtils.convertForeach(updateIdItem, SqlScriptStrongUtils.List, null, Constants.ENTITY, COMMA);
+        String valueUpdateIdHead = SqlScriptStrongUtils.convertForeach(updateIdItem, SqlScriptStrongUtils.LIST, null, Constants.ENTITY, COMMA);
         String valuesUpdateIdBody = SqlScriptUtils.convertTrim(valueUpdateIdHead, "update_id =case", "end,", "", "");
 
         String sqlAll = SqlScriptUtils.convertTrim(valuesIsDeleteBody + "\n" + valuesUpdateIdBody, "set", "", "", ",");
 
         String idItem = String.format("(#{%s.id},0)", Constants.ENTITY);
-        String valuesIDs = SqlScriptUtils.convertForeach(idItem, SqlScriptStrongUtils.List, null, Constants.ENTITY, COMMA);
+        String valuesIds = SqlScriptUtils.convertForeach(idItem, SqlScriptStrongUtils.LIST, null, Constants.ENTITY, COMMA);
 
-        String sql = String.format(SqlMethod.LOGIC_DELETE_BATCH_BY_IDS.getSql(), tableInfo.getTableName(), sqlAll, "(id,is_delete)", valuesIDs, "");
+        String sql = String.format(SqlMethod.LOGIC_DELETE_BATCH_BY_IDS.getSql(), tableInfo.getTableName(), sqlAll, "(id,is_delete)", valuesIds, "");
 
         SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
         return addUpdateMappedStatement(mapperClass, modelClass, MAPPER_METHOD, sqlSource);

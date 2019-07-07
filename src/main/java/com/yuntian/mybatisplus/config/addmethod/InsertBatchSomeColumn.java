@@ -29,7 +29,7 @@ import java.util.function.Predicate;
  * <p>
  * 自己的通用 mapper 如下使用:
  * <pre>
- * int insertBatchSomeColumn(List<T> entityList);
+ * int insertBatchSomeColumn(LIST<T> entityList);
  * </pre>
  * </p>
  *

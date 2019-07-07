@@ -1,4 +1,4 @@
-package com.yuntian.mybatisplus.sys.service;
+package com.yuntian.mybatisplus.sys.service.impl;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @Description:
  */
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

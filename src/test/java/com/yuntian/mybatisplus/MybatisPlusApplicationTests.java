@@ -156,7 +156,7 @@ public class MybatisPlusApplicationTests {
 
         list.add(user1);
         list.add(user2);
-        userService.deleteBatch(list);
+        userService.deleteBatchByDTO(list);
 
     }
 
