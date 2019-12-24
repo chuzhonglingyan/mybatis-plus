@@ -3,9 +3,9 @@ DROP TABLE IF EXISTS `api_user`;
 CREATE TABLE `api_user`(
 `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
 `account` VARCHAR(20) DEFAULT NULL COMMENT '用户账号',
-`pass_word` varchar(32) DEFAULT NULL COMMENT '密码',
-`user_name` VARCHAR(20) DEFAULT NULL COMMENT '姓名',
-`nick_name` VARCHAR(20) DEFAULT NULL COMMENT '昵称',
+`pass_word` varchar(64) DEFAULT NULL COMMENT '密码',
+`user_name` VARCHAR(30) DEFAULT NULL COMMENT '姓名',
+`nick_name` VARCHAR(30) DEFAULT NULL COMMENT '昵称',
 `age` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '年龄',
 `sex` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '0-男，1-女，默认为0',
 `phone` varchar(20) NOT NULL COMMENT '电话',

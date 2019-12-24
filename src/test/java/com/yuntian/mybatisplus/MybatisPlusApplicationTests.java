@@ -7,10 +7,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yuntian.mybatisplus.api.model.entity.User;
 import com.yuntian.mybatisplus.api.service.UserService;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,6 @@ import javax.annotation.Resource;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
 public class MybatisPlusApplicationTests {

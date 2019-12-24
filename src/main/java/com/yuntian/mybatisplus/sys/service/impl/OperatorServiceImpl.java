@@ -20,7 +20,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-06
+ * @since 2019-12-19
  */
 @Service
 public class OperatorServiceImpl extends BaseServiceImpl<OperatorMapper, Operator> implements OperatorService {
@@ -66,6 +66,7 @@ public class OperatorServiceImpl extends BaseServiceImpl<OperatorMapper, Operato
             BusinessException.throwMessage("删除失败,请刷新重试");
         }
     }
+
 
 
     @Transactional(rollbackFor = Exception.class)

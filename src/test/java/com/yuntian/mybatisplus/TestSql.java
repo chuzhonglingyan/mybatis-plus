@@ -5,7 +5,8 @@ import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlScriptUtils;
 import com.yuntian.mybatisplus.util.SqlScriptStrongUtils;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static com.baomidou.mybatisplus.core.toolkit.StringPool.COMMA;
 

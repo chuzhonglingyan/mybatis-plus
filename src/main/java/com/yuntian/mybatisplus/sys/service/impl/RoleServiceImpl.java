@@ -20,7 +20,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-06
+ * @since 2019-12-19
  */
 @Service
 public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implements RoleService {

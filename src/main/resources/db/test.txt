@@ -1,0 +1,1 @@
+pms_product_brand,pms_product_category,pms_product_shop_info,pms_product_sku,pms_product_sku_spec_value,pms_product_spec,pms_product_spec_value,pms_product_spu,pms_product_spu_spec

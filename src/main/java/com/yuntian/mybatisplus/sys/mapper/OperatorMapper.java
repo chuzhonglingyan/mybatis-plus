@@ -9,7 +9,7 @@ import com.yuntian.mybatisplus.common.MyBaseMapper;
  * </p>
  *
  * @author yuntian
- * @since 2019-07-06
+ * @since 2019-12-19
  */
 public interface OperatorMapper extends MyBaseMapper<Operator> {
 

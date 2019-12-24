@@ -8,7 +8,7 @@ import com.yuntian.mybatisplus.common.BaseDTO;
     *  后台系统-用户表
     * </p>
 * @author yuntian
-* @since 2019-07-06
+* @since 2019-12-19
 */
 public class OperatorDTO extends BaseDTO implements Serializable{
 

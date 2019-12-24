@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 *  后台系统-用户表
 * </p>
 * @author yuntian
-* @since 2019-07-06
+* @since 2019-12-19
 */
 @Data
 @EqualsAndHashCode(callSuper = true)

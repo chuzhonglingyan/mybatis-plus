@@ -27,7 +27,7 @@ CREATE TABLE `pms_product_spu` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `product_code` varchar(64) NOT NULL COMMENT '商品编号，唯一',
   `product_name` varchar(50) NOT NULL COMMENT '商品名称',
-  `low_price` decimal(9,2) NOT NULL COMMENT '最低售价',
+  `low_price` decimal(10,2) NOT NULL COMMENT '最低售价',
   `category_id` bigint(20) NOT NULL COMMENT '分类id',
   `brand_id` bigint(20) NOT NULL COMMENT '品牌id',
   `create_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '创建人',
@@ -43,7 +43,7 @@ CREATE TABLE `pms_product_spu` (
 DROP TABLE IF EXISTS `pms_product_spec`;
 CREATE TABLE `pms_product_spec` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `spec_no` varchar(50) NOT NULL COMMENT '规格编号',
+  `spec_code` varchar(64) NOT NULL COMMENT '规格编号',
   `spec_name` varchar(50) NOT NULL COMMENT '规格名称',
   `create_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '创建人',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -70,7 +70,7 @@ CREATE TABLE `pms_product_spec_value` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品规格值表';
 
 
--- spu和规格表和表是一对多的关系  iphone11 spu 内存 颜色
+-- spu和规格表和表是一对多的关系
 DROP TABLE IF EXISTS `pms_product_spu_spec`;
 CREATE TABLE `pms_product_spu_spec` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
